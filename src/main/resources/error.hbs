@@ -1,0 +1,17 @@
+{{#partial "content"}}
+    <h1>{{status}}</h1>
+    <p>
+        {{#if message}}
+            {{message}}
+        {{else}}
+            {{#if shortType}}
+                {{shortType}}
+            {{else}}
+                {{#if e403}}Bad Request{{/if}}
+                {{#if e404}}Not Found{{/if}}
+            {{/if}}
+        {{/if}}
+    </p>
+{{/partial}}
+
+{{> layout}}

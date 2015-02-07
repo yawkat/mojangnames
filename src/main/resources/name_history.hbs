@@ -1,0 +1,20 @@
+{{#partial "content"}}
+    <table class="table">
+        <thead>
+        <tr>
+            <th width="50%">Name</th>
+            <th width="50%">Changed</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each history.entries}}
+            <tr>
+                <td><a href="/{{name}}">{{name}}</a></td>
+                <td>{{#instant changedToAt}}{{/instant}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+{{/partial}}
+
+{{> layout}}
