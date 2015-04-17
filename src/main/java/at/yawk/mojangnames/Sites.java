@@ -21,13 +21,17 @@ public class Sites {
     @RequestMapping("/{uuid:[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}}")
     ModelAndView history(@PathVariable UUID uuid) throws IOException, InterruptedException {
         NameHistory history = endpointProvider.nameHistory().call(uuid);
-        return new ModelAndView("name_history").addObject("history", history);
+        return new ModelAndView("name_history")
+                .addObject("history", history)
+                .addObject("uuid", uuid);
     }
 
     @RequestMapping("/{name:\\w+}")
     ModelAndView name(@PathVariable String name) throws IOException, InterruptedException {
         Profile profile = endpointProvider.profileByName().call(name);
         if (profile == null) { throw new NoSuchUserException(); }
-        return new ModelAndView("profile").addObject("profile", profile);
+        return new ModelAndView("profile")
+                .addObject("profile", profile)
+                .addObject("name", name);
     }
 }

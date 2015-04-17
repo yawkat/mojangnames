@@ -17,6 +17,12 @@
         dt {
             width: inherit !important;
         }
+        #url {
+            font: Source Code Pro, monospaced;
+            width: 100%;
+            margin-top: 5em;
+            cursor: inherit;
+        }
     </style>
 </head>
 <body>
@@ -30,6 +36,9 @@
         </div>
     </form>
     {{# block "content"}}{{/block}}
+
+    <input id="url" type="text" value="{{block "url"}}"
+           style="" class="form-control" readonly>
 </div>
 </body>
 </html>
