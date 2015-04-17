@@ -10,7 +10,13 @@
         {{#each history.entries}}
             <tr>
                 <td><a href="/{{name}}">{{name}}</a></td>
-                <td>{{#instant changedToAt}}{{/instant}}</td>
+                <td>
+                    {{#if changedToAt}}
+                        {{instant changedToAt}}
+                    {{else}}
+                        <span class="first_name">Initial Account Name</span>
+                    {{/if}}
+                </td>
             </tr>
         {{/each}}
         </tbody>
