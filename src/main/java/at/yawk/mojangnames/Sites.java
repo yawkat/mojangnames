@@ -4,6 +4,7 @@ import at.yawk.mojangapi.EndpointProvider;
 import at.yawk.mojangapi.NameHistory;
 import at.yawk.mojangapi.Profile;
 import java.io.IOException;
+import java.time.Instant;
 import java.util.UUID;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,7 @@ public class Sites {
         if (profile == null) { throw new NoSuchUserException(); }
         return new ModelAndView("profile")
                 .addObject("profile", profile)
-                .addObject("name", name);
+                .addObject("name", name)
+                .addObject("time", Instant.now().getEpochSecond());
     }
 }
