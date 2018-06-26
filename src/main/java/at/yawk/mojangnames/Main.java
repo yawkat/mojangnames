@@ -31,9 +31,6 @@ public class Main {
     }
 
     public static void main(String[] args) throws DependencyException {
-        log.info("Loading dependencies (this may take a while)");
-        DependencyLoader.loadFromClasspath();
-
         start(args);
     }
 
